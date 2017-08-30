@@ -1,0 +1,20 @@
+div,form, input {
+      margin: 15px;
+    }
+
+.cars {
+
+border-radius: 20px;
+    background: #b5c7e5;
+    padding: 10px; 
+    width: 70px;
+    height: 50px; 
+
+      }
+ #add-cars {
+ 	background: #b5c7e5;
+ 	color: black;
+ 	border-radius: 25px;
+ 	width: 150px;
+    height: 35px; 
+ }
