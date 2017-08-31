@@ -6,7 +6,7 @@
       function displayCarInfo() {
 
         var cars = $(this).attr("data-cars");
-        
+        //ajax method properties of URL and GET to query the GIPHY site and pull the CARS giphs.
           $.ajax({
           url: "https://api.giphy.com/v1/gifs/search?q=" +
             cars + "&api_key=dc6zaTOxFJmzC&limit=10",
@@ -14,13 +14,16 @@
         })
 
           .done(function(response) {
-          //storing an array of results in the results variable
+          //HERE WE STORE THE RESULTS IN AN ARRAY VARIABLE
+
           var results = response.data;
-          //looping over every result item
+          //looping over every result in the array
+
           for (var i = 0; i < results.length; i++) {
 
+            //conditional statement 
             if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-            // Creating a div with the class "item"
+            // Creating a div with the class "carsgifdiv"
             var gifDiv = $("<div class='carsGifDiv'>");
             // Storing the result item's rating
             var rating = results[i].rating;
@@ -46,25 +49,32 @@
 
     }    
 
-      // This function handles events where the add cars button is clicked
+      // This function handles events where the add cars button is clicked "on-click"
       $("#add-cars").on("click", function(event) {
         event.preventDefault();
-        // This line of code will grab the input from the textbox
+
+        // here we grab the input from the textbox
         var cars = $("#cars-input").val().trim();
 
-        // The movie from the textbox is then added to our array
-        //log
+        // The car input from textbox is then added to the array
+     
           var a = $("<button>");
-          // Adds a class of cars to our button
+          // Adds a class of cars to button
+
           a.addClass("cars");
           // Added a data-attribute
+
           a.attr("data-cars", cars);
           // Provided the initial button text
+
           a.text(cars);
-          // Added the button to the buttons-view div
+          // Appending the button to the buttons-view div
           $("#buttons-view").append(a);
       });
-       // $(document).ready(function(){
+
+
+
+       // here we control the images moving when the image is "clicked on"
        $('body').on('click', "img", function(event) {
 
         var movingImage = $(this).attr("moving-image");
